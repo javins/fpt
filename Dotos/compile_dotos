@@ -1,0 +1,6 @@
+
+
+# cc  -c  -O1  -I../Source  ../Source/Non_graphics.c  ../Source/G_graphics.c  ../Source/X_graphics.c
+
+cc  -c  -m32  -I../Source  ../Source/Non_graphics.c  ../Source/G_graphics.c  ../Source/X_graphics.c
+

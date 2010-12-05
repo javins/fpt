@@ -1,0 +1,11 @@
+
+this is the version that is being used in the labs.
+
+the only thing that is different from the original
+version is that the compile scripts have the -m32 switch
+
+this is also the version that is on the webpage for others
+to download 
+
+it also seems to work in the original development environment.
+
