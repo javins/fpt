@@ -39,7 +39,7 @@ Leopard, and 10.6.6 Snow Leopard running on an intel macbook pro.
 
 	you should see a folder "Contents"
 
-    	If these commands pan out, you should be in
+   	If these commands pan out, you should be in
 	business.
 
 
@@ -255,49 +255,3 @@ Leopard, and 10.6.6 Snow Leopard running on an intel macbook pro.
 
 	(Hit q to exit a man page.  Use the up and down arrows to 
 	scroll.)
-
-
-
-///////////// Appendix II (Enabling root on your Mac) /////////////
-
--1.	It used to be that enabling root was the recommended way
-	of getting superuser install permissions on a Mac.  I've
-	since rethought that, and this section is now deprecated.
-
-	There is an excellent, but potentially dated, page
-	provided by Apple on this topic at:
-
-	http://support.apple.com/kb/HT1528
-
-	I've distilled the essentials to this document in case the 
-   	above address becomes invalid.
-
-0.	About the root user
-
-   	The user named "root" is a special user in UNIX-style
-   	operating systems that has read and write privileges to
-   	all areas of the file system.  In English, the previous
-   	sentencemeans: The root user can do anything on your 
-   	computer.  It can get into other user's private files
-   	where people shouldn't be nosing around.  It can modify
-   	files that shouldn't be modified.  It can mess up your OS
-   	if used incorrectly.  So please be careful!
-
-   	After completing a task as the root user,it is good
-   	practice to immediately return to your default user. You
-   	should disable root access if you do not use it often.
-
-
-1.	Enabling root on Mac OS X 10.5 or later
-
-   	Open the Directory Utility and unlock it by clicking the
-   	lock. If you are on your own system, your username and
-   	password should work.  Otherwise, you'll need an admin's.
-
-	Choose Enable Root User from the Edit menu.
-
-	Enter a new root password.  Make sure to remember this
-	password, but also keep it secret.  Root access is
-	incredibly powerful.
-
-	The root user can be disabled in this same way.
