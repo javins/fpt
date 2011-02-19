@@ -1,12 +1,12 @@
 Instructions for Installing the Freshman's Programming Toolkit
-Mac OSX 10.4 and 10.5
+Mac OSX 10.4, 10.5 and 10.6
 
 Original Linux instructions by J. Ely
-Updated for Mac by W. Javins: January 2009
+Updated for Mac by W. Javins: Jan. 2011
 
 //////////////////////////////////////////////////////////////////
-These instructions were tested with OSX 10.4.11 Tiger and 10.5.4 
-Leopard running on an intel macbook pro.  
+These instructions were tested with OSX 10.4.11 Tiger, 10.5.4 
+Leopard, and 10.6.6 Snow Leopard running on an intel macbook pro.
 //////////////////////////////////////////////////////////////////
 
 
@@ -62,73 +62,69 @@ Leopard running on an intel macbook pro.
 
 	cp  FPT  /
 
-	Or in Finder, open the Macintosh HD and drag the FTP  
-	folder into it.
+	Or in Finder, the Macintosh HD and drag the FTP  folder
+	into it.
 
-   1.3	If you have chosen to install FPT in some other location 
-	you will need to edit the two compile scripts, acom and 
-	bcom to reflect where you actually installed this stuff.
+   1.3	If you have chosen to install FPT in some other 
+    location you will need to edit the two compile scripts, 
+    acom and bcom to reflect where you actually installed 
+    this stuff.
 
+2. Open Terminal
 
-2. Open Terminal and become root. (See Appendix I for enabling 
-   the root user on your Mac.)
-
-   2.1	To become root, enter:
-
-	su  root
-
-	and then enter your root password.
-
-
-3. As root:
-
-   3.1	Issue the commands:
+   2.1	Issue the commands:
 
 	cd  /FPT
 
-     	ls
+    ls
 
 	You should see the files:
-	   ReadmeMac (this file), acom, acomGPP, bcom, and
-	   sed.control
+	   acom, acomGPP, bcom, and sed.control
 
 	and you should see the directories:
-           Dotos, DotosGPP, Examples, ExamplesGPP, Readmes
-	   and Source
+       Dotos, DotosGPP, Examples, ExamplesGPP, Readmes
+       and Source
 
-   3.2	Issue the commands:
+   2.2	Issue the commands:
 
-	ln  -s  /FPT/acom  /usr/bin/acom
-	ln  -s  /FPT/bcom  /usr/bin/bcom
+	sudo ln  -s  /FPT/acom  /usr/bin/acom
+	sudo ln  -s  /FPT/bcom  /usr/bin/bcom
 
-	This assumes you've installed the FTP at /FPT.  These 
-	two commands create links from the system's command 
-	library to the actual acom and bcom commands.
+	You should be asked for your password.  The sudo command 
+	cannot run without it.
+
+	This assumes you've installed the FTP at /FPT.  These two
+	commands create links from the system's command library to
+	the actual acom and bcom commands.
+	
+   2.3  At this point, the FPT *should* be installed.  You are
+    safe to skip to step 5.  If the test fails, then you many
+    need to come back to steps 3 and 4.
 
 
-4. You may need to recompile the   FPT/Dotos/*.o   files.
-   This can easily be done by navigating to the FPT/Dotos
-   directory and issuing the command:
+3. 	You may need to recompile the   FPT/Dotos/*.o   files.
+   	This can easily be done by navigating to the FPT/Dotos
+   	directory and issuing the command:
 
    ./compile_dotos
 
 
-5. It is very likely that others can already read and execute 
+4. It is very likely that others can already read and execute 
    what they need  but if not, you should make sure they can:
 
-   5.1	Read and execute the directories:
+   4.1	Read and execute the directories:
 
 	/FPT
 	/FPT/Dotos
 	/FPT/Examples
 	/FPT/Source
 
-   5.2	That they can read and execute the files:
+   4.2	That they can read and execute the files:
 
 	/FPT/acom
 	/FPT/bcom
 
-   5.3	And that they can read the files:
+   4.3	And that they can read the files:
 
 	/FPT/ReadmeMac
 	/FPT/sed.control
@@ -137,38 +133,39 @@ Leopard running on an intel macbook pro.
 	/FPT/Dotos/*.o
 	/FPT/Source/*.h
 
-   5.4  If you've never worked with file permissions before, see 
-	Appendix II to learn about file permissions, including how 
-	to view and edit them.
+   4.4  If you've never worked with file permissions before,
+	see Appendix I to learn about file permissions, including
+    how to view and edit them.
 
-7. You've now installed the FPT!
+5. You've installed the FPT!
 
-   7.1 	You are now in business for text based programs! (e.g. 
+   5.1 	You are now in business for text based programs! (e.g. 
 	the first half of CS1.)  To test this, issue the commands:
 
 	cd  Examples
 
 	bcom  helloworld.c	[this will invoke the compile 
-				 script, bcom, to compile the 
-				 sample program, helloworld.c]
-	./a.out			[run the program]
+				 		script, bcom, to compile the 
+				 		sample program, helloworld.c]
+				 		
+	./a.out				[run the program]
 
 	You should see "Hello World!" in you Terminal.
 
-   7.2	However, for graphical programs (anything requiring 
+   5.2	However, for graphical programs (anything requiring 
 	G_init_graphics()), there are a few more Mac related 
 	things to be done.
 
 
 ////////////// Starting X11 and Setting up Terminal //////////////
 
-8. Before you can run any graphical programs you need to:
+6.	Before you can run any graphical programs you need to:
 
-   8.1	Start the X11 application.  It is found at:
+   6.1	Start the X11 application.  It is found at:
 
 	/Applications/Utilities/X11.app
 
-   8.2	Do one of the following.
+   6.2	Do one of the following:
 	
 	Either:
 	Use xterm to execute the graphical program.  For instance 
@@ -185,135 +182,122 @@ Leopard running on an intel macbook pro.
 	open.
 
 
-9. Time to test that everything works!
-   As a test of the installation, make sure X11 is running and 
-   one of 8.2's options is in effect.  Issue the commands:
+7. 	Time to test that everything works!
 
-   cd  /FPT/Examples
+   7.1	As a test of the installation, make sure X11 is running
+   	and one of 8.2's options is in effect.  Issue the commands:
 
-   acom  t01a.c   [this will invoke the compile script, acom,
+	cd  /FPT/Examples
+
+	acom  t01a.c   [this will invoke the compile script, acom,
                    to compile the sample program, t01a.c]
-   ./a.out        [run the program]
+                   
+	./a.out        [run the program]
 
-   Hopefully something visual happens.
-
-
-
-///////////// Appendix I (Enabling root on your Mac) /////////////
-
-   There is an excellent page provided by Apple on this topic at:
-
-   http://support.apple.com/kb/HT1528
-
-   I've distilled the essentials to this document in case the 
-   above address becomes invalid.
-
-0. About the root user
-
-   The user named "root" is a special user in UNIX-style operating 
-   systems that has read and write privileges to all areas of the 
-   file system.  In Engish, the previous sentence means: The root 
-   user can do anything on your computer.  It can get into other 
-   user's private files where people shouldn't be nosing around.  
-   It can modify files that shouldn't be modified.  It can mess up 
-   your OS if used incorrectly.  So please be careful.
-
-   After completing a task as the root user, it is good practice 
-   to immediately return to your default user. You should disable 
-   root access if you do not use it often.
-
-
-1. Enabling root on Mac OS X 10.5 or later
-
-   Open the Directory Utility and unlock it by clicking the lock.  
-   If you are on your own system, your username and password 
-   should work.  Otherwise, you'll need an admin's.
-
-   Choose Enable Root User from the Edit menu.
-
-   Enter a new root password.  Make sure to remember this 
-   password, but also keep it secret.  Root access is incredibly 
-   powerful.
-
-   The root user can be disabled in this same way.
-
-
-2. Enabling root on Mac OS X 10.4.x or earlier
-
-   Open the NetInfo Manager utility and unlock it by clicking the
-   lock.  If you are on your own system, your username and 
-   password should work.  Otherwise, you'll need an admin's.
-
-   For Mac OS X 10.2 and later, choose Enable Root User from the 
-   Security menu.
-
-   For Mac OS X 10.0 and 10.1, choose Security from the Domain 
-   menu, then Enable Root User from the submenu.
-
-   If you have not previously set a root password, an alert box 
-   may appear that says "NetInfo Error," indicating that the 
-   password is blank. Don't panic!  Just enter a password in the 
-   following prompt.  Make sure to remember this password, but 
-   also keep it secret.  Root access is incredibly powerful.
-
-   The root user can be disabled in this same way.
+	Hopefully something visual happens.
 
 
 
-///////////////// Appendix II (File Permissions) /////////////////
+///////////////// Appendix I (File Permissions) /////////////////
 
-   You can discover the permissions of a file using the command: 
+	You can discover the permissions of a file using the
+	command: 
 
-   ls -l
+	ls -l
 
-   As an example:
+	As an example:
 
-   ls -l  acom
+	ls -l  acom
 
-   might show something like
+	might show something like
 
-   -rwxr-xr--    1 user  admin   986 Jan  1 00:00 acom
+	-rwxr-xr--    1 user  admin   986 Jan  1 00:00 acom
 
-   The permissions are displayed in the first 10 characters 
-   (-rwxr-xr-x).  Ignoring the first -, the next three symbols 
-   show that the owner of the file can rwx (read, write, and 
-   execute) the file.  The next 3 show the permissions of the 
-   group (ignore these) and the last three show the permissions 
-   for others.  In this case r-- indicates that others can read 
-   the file but not write or execute it.  We don't want them to be 
-   able to write (alter) it but we do want them to be able to 
-   execute it because it is a compile script so we issue the 
-   command:
+	The permissions are displayed in the first 10 characters 
+	(-rwxr-xr-x).  Ignoring the first -, the next three symbols 
+	show that the owner of the file can rwx (read, write, and 
+	execute) the file.  The next 3 show the permissions of the 
+	group (ignore these) and the last three show the 
+	permissions for others.  In this case r-- indicates that
+	others can read the file but not write or execute it.  We
+	don't want them to be able to write (alter) it but we do
+	want them to be able to execute it because it is a compile
+	script, so we issue the command:
 
-   chmod o+x  acom
+	chmod o+x  acom
 
-   Now the command:
+	Now the command:
 
-   ls -l  acom    
+	ls -l  acom    
 
-   should show 
+	should show:
 
-   -rwxr-xr-x    1 user  admin   986 Jan  1 00:00 acom
+	-rwxr-xr-x    1 user  admin   986 Jan  1 00:00 acom
 
-   where the last x indicates that others can now execute
-   the file.
+   	where the last x indicates that others can now execute
+   	the file.
 
-   The string o+x from the example can be adjusted to change any 
-   of the rwx values for the owner(u), the group(g) or others(o). 
-   For instance:
+   	The string o+x from the example can be adjusted to change
+   	any of the rwx values for the owner(u), the group(g) or
+   	others(o). For instance:
 
-   chmod u-r  acom
+	chmod u-r  acom
 
-   would remove read permission from the owner.
+	would remove read permission from the owner.
 
-   chmod g+w  acom
+	chmod g+w  acom
 
-   would add write permission for the group.
+	would add write permission for the group.
 
-   For more information on file permissions type the command:
+	For more information on file permissions type the command:
 
-   man chmod
+	man chmod
 
-  (Hit q to exit a man page.  Use the up and down arrows to 
-   scroll.)
+	(Hit q to exit a man page.  Use the up and down arrows to 
+	scroll.)
 
+
+
+///////////// Appendix II (Enabling root on your Mac) /////////////
+
+-1.	It used to be that enabling root was the recommended way
+	of getting superuser install permissions on a Mac.  I've
+	since rethought that, and this section is now deprecated.
+
+	There is an excellent, but potentially dated, page
+	provided by Apple on this topic at:
+
+	http://support.apple.com/kb/HT1528
+
+	I've distilled the essentials to this document in case the 
+   	above address becomes invalid.
+
+0.	About the root user
+
+   	The user named "root" is a special user in UNIX-style
+   	operating systems that has read and write privileges to
+   	all areas of the file system.  In English, the previous
+   	sentencemeans: The root user can do anything on your 
+   	computer.  It can get into other user's private files
+   	where people shouldn't be nosing around.  It can modify
+   	files that shouldn't be modified.  It can mess up your OS
+   	if used incorrectly.  So please be careful!
+
+   	After completing a task as the root user,it is good
+   	practice to immediately return to your default user. You
+   	should disable root access if you do not use it often.
+
+
+1.	Enabling root on Mac OS X 10.5 or later
+
+   	Open the Directory Utility and unlock it by clicking the
+   	lock. If you are on your own system, your username and
+   	password should work.  Otherwise, you'll need an admin's.
+
+	Choose Enable Root User from the Edit menu.
+
+	Enter a new root password.  Make sure to remember this
+	password, but also keep it secret.  Root access is
+	incredibly powerful.
+
+	The root user can be disabled in this same way.
